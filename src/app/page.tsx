@@ -80,7 +80,7 @@ export default function Home() {
       </div>
 
       <div className="relative py-12 z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-4xl before:content-[''] after:absolute after:-z-20 after:h-[480px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] md:before:w-[500px] md:after:w-[300px] before:lg:h-[460px]">
-        <div className="relative z-50 dark:drop-shadow-[0_0_0.3rem_#ffffff70] w-full md:min-w-[400px] p-6 opacity-35 rounded-md bg-white text-black h-80 max-h-screen overflow-y-auto">
+        <div className="relative z-50 dark:drop-shadow-[0_0_0.3rem_#ffffff70] w-full md:min-w-[400px] p-6 opacity-85 rounded-md bg-white text-black h-80 max-h-screen overflow-y-auto">
           {openEateries.length > 0 ? (
             openEateries.map((rest, idx) => (
               <div key={rest} className="hover:bg-blue-800 hover:text-white">

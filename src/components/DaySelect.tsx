@@ -25,18 +25,15 @@ const DaySelect = () => {
         <path
           d="M206 171.144L42.678 7.822c-9.763-9.763-25.592-9.763-35.355 0-9.763 9.764-9.763 25.592 0 35.355l181 181c4.88 4.882 11.279 7.323 17.677 7.323s12.796-2.441 17.678-7.322l181-181c9.763-9.764 9.763-25.592 0-35.355-9.763-9.763-25.592-9.763-35.355 0L206 171.144z"
           fill="#648299"
-          fill-rule="nonzero"
+          fillRule="nonzero"
         />
       </svg>
       <select className="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
         {days.map((day, idx) => {
           return (
-            <>
-              {idx === 0 && (
-                <option onClick={() => setDay('all')}>any day</option>
-              )}
-              <option onClick={() => setDay(day)}>{day}</option>
-            </>
+            <option key={day} onClick={() => setDay(day)}>
+              {day}
+            </option>
           )
         })}
       </select>

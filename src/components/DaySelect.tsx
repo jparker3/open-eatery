@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 
 const days = [
@@ -13,8 +12,7 @@ const days = [
   'Saturday',
 ]
 
-const DaySelect = () => {
-  const [day, setDay] = useState('all')
+const DaySelect = ({ day, onChange }) => {
   return (
     <div className="relative inline-flex">
       <svg
@@ -31,7 +29,7 @@ const DaySelect = () => {
       <select className="border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
         {days.map((day, idx) => {
           return (
-            <option key={day} onClick={() => setDay(day)}>
+            <option key={day} onClick={onChange} value={day}>
               {day}
             </option>
           )

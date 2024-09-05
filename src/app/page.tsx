@@ -8,6 +8,8 @@ import 'react-clock/dist/Clock.css'
 import restHours from 'utils/rest_hours'
 import parseDateString from 'utils/parseDateString'
 import { isWithinInterval } from 'date-fns'
+import DaySelect from '@/components/DaySelect'
+import TimeSelect from '@/components/TimeSelect'
 
 type ValuePiece = Date | null
 
@@ -18,6 +20,10 @@ export default function Home() {
   const [openEateries, setOpenEeateries] = useState(
     restHours.map((rest) => rest.name).sort()
   )
+  const [day, setDay] = useState('Sunday')
+  const [hour, setHour] = useState('1')
+  const [minute, setMinute] = useState('00')
+  const [position, setPosition] = useState('AM')
   const parsedData = restHours.map((eatery) => {
     const { name, times } = eatery
     return {
@@ -47,6 +53,19 @@ export default function Home() {
     console.log('AdjustedDDDD', adjustedEateries)
     setOpenEeateries(adjustedEateries)
   }, [value])
+
+  function handleChange(e) {
+    setDay(e.target.value)
+  }
+  function handleHourChange(e) {
+    setHour(e.target.value)
+  }
+  function handleMinuteChange(e) {
+    setMinute(e.target.value)
+  }
+  function handlePositionChange(e) {
+    setPosition(e.target.value)
+  }
   // Create day picker dropdown ....
 
   // Create or use time picker library
@@ -64,6 +83,14 @@ export default function Home() {
       </h2>
       <div className="z-10 w-full max-w-5xl items-center justify-center font-mono text-sm lg:flex">
         <div className="bg-white opacity-85">
+          <DaySelect day={day} onChange={handleChange} />
+          <TimeSelect
+            hour={hour}
+            minute={minute}
+            hourOnChange={handleHourChange}
+            minOnChange={handleMinuteChange}
+            positionOnChange={handlePositionChange}
+          />
           <DateTimePicker
             className="text-black"
             onChange={onChange}
